@@ -1,8 +1,8 @@
-const routes = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const lesson1Controller = require('../controller/lesson1');
 
-routes.get('/', lesson1Controller.mariajoseRoute);
-routes.get('/cote', lesson1Controller.coteRoute);
+router.get('/', lesson1Controller.mariajoseRoute); // root path
+router.get('/cote', lesson1Controller.coteRoute); // optional
 
-module.exports = routes; 
-
+module.exports = router;

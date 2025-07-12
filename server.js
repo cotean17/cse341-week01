@@ -1,9 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
+const { connectToDatabase } = require('./services/mongo');
 
-const port = 3000;
+// Connect to MongoDB
+connectToDatabase();
 
-app.use('/', require('./routes'));
+// Use routes from routes/index.js
+const routes = require('./routes');
+app.use('/', routes);
 
-app.listen(process.env.port || port);
-console.log('Web Server is listening at port ' + (process.env.port || 3000));
+// Start server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`✅ Web Server is listening at http://localhost:${port}`);
+});
