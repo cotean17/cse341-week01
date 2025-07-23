@@ -9,7 +9,12 @@ const options = {
       version: '1.0.0',
       description: 'API for managing contacts',
     },
-    servers: [{ url: 'http://localhost:3000' }],
+    servers: [
+      {
+        url: 'https://cse341-week01-irk9.onrender.com',
+        description: 'Deployed Render Server',
+      },
+    ],
   },
   apis: ['./routes/*.js'],
 };
